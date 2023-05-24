@@ -1,6 +1,6 @@
 # WAD Project
-Name:  <br> Yong Le
-Module Group: <br> L1
+Name:Yong Le  <br> 
+Module Group:L1 <br> 
 <br> 
 ## Project Title
 Please give a meaningful name for your application. <br>
