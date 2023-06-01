@@ -12,7 +12,8 @@ Why do you want to build this web application? <br>
 Write down clearly what are the things the user can perform with your web application.<br>
 <br> 
 ## External API(s) that you would like to use
-Describe which external APIs that you would like to use and how you would use them. Put the reference links where you found the APIs.<br>
+Moment.js: Moment.js is a date and time manipulation library for JavaScript. If your app needs to handle time-related operations, such as displaying schedules or calculating arrival times, Moment.js can help you parse, manipulate, and format dates and times.<br>
+https://momentjs.com/<br>
 <br> 
 ## Additional node modules that you would like to use
 Describe any node modules that you would like to use or have used in the current stage of the project.<br>
