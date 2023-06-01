@@ -14,9 +14,9 @@ Write down clearly what are the things the user can perform with your web applic
 ## External API(s) that you would like to use
 
 ## Additional node modules that you would like to use
-Moment.js: Moment.js is a date and time manipulation library for JavaScript to handle time-related operations, such as displaying schedules or calculating arrival times, Moment.js can help to parse, manipulate, and format dates and times.<br>
+Moment.js: Moment.js is a powerful date and time manipulation library. It can help to manage and format dates and times related to movie showtimes, bookings, and scheduling.<br>
 https://momentjs.com/<br>
-Leaflet: Leaflet is an open-source JavaScript library for interactive maps. It provides a simple and flexible API for creating map-based views.
+Nodemailer: movie ticket system includes features like sending booking confirmations or notifications via email, Nodemailer is a popular module that simplifies email sending from Node.js.
 <br> 
 https://leafletjs.com/<br>
 <br>
