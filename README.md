@@ -10,7 +10,9 @@ xxx <br>
 <br>
 ## Key Features
 Movie Listings: Display a list of movies currently playing or upcoming, along with relevant details such as title, poster, genre, and rating. <br>
+<br>
 Theater and Showtime Information: Provide information about theaters and their showtimes for each movie. Users should be able to view details like theater location, available showtimes, seating availability, and ticket prices.<br>
+<br>
 Booking and Ticketing: Enable users to book movie tickets by selecting seats, specifying the number of tickets, and providing necessary personal information. Once the booking is confirmed, users should receive a booking confirmation<br> 
 <br> 
 ## External API(s) that you would like to use
