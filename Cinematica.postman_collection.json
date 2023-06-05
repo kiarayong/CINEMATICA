@@ -1,0 +1,395 @@
+{
+	"info": {
+		"_postman_id": "8a5e41cf-b00f-4977-a2a7-2a9e3b36ddf5",
+		"name": "Cinematica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27424994"
+	},
+	"item": [
+		{
+			"name": "Add Movie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Aavatar",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Jake, who is paraplegic, replaces his twin on the Na'vi inhabited Pandora for a corporate mission. After the natives accept him as one of their own, he must decide where his loyalties lie.",
+							"type": "text"
+						},
+						{
+							"key": "genre",
+							"value": "Action",
+							"type": "text"
+						},
+						{
+							"key": "releaseDate",
+							"value": "17/12/2009",
+							"type": "text"
+						},
+						{
+							"key": "duration",
+							"value": "182",
+							"type": "text"
+						},
+						{
+							"key": "director",
+							"value": "James Cameron",
+							"type": "text"
+						},
+						{
+							"key": "rating",
+							"value": "7.9",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/movies",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/movies",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movie By Title",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/movie/title/:value",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"movie",
+						"title",
+						":value"
+					],
+					"variable": [
+						{
+							"key": "value",
+							"value": "Avatar"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Movie",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Avatar",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "Jake, who is paraplegic, replaces his twin on the Na'vi inhabited Pandora for a corporate mission. After the natives accept him as one of their own and he must decide where his loyalties lie.",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "rating",
+							"value": "8.8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/movie/title/:value",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"movie",
+						"title",
+						":value"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "value",
+							"value": "Avatar"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Movie",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/movie/title/:value",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"movie",
+						"title",
+						":value"
+					],
+					"variable": [
+						{
+							"key": "value",
+							"value": "Avatar"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Movie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "ave",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/movie/search",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"movie",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Jet",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "jetyang",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "jetyang@yahoo.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Theater",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Cathay Cineplex",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Cathay Cineplex AMK Hub, 53 Ang Mo Kio Ave 3, Level 4, Singapore 569933",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "Ang Mo Kio",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "bookings@cathaycineplexes.com.sg",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/theater",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"theater"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Theater",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "go",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/theater/search",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"theater",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Theater",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Cathay Cineplex AMK",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "Tampines",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/theater/name/:value",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"theater",
+						"name",
+						":value"
+					],
+					"variable": [
+						{
+							"key": "value",
+							"value": "Cathay Cineplex"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
