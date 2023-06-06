@@ -9,7 +9,7 @@ Cinematica <br>
 Cinematica aims to simplify and streamline the process of booking movie tickets, providing users with a convenient and user-friendly platform. By integrating with multiple theaters, it offers a centralized hub for users to explore movie listings, view showtimes, and select their preferred theaters and seats. Overall, the system strives to enhance the movie-going experience by offering a centralized and convenient platform for users to discover, book, and enjoy their favorite movies. <br>
 <br>
 ## Key Features
-Movie Listings: Display a list of movies currently playing or upcoming, along with relevant details such as title, poster, genre, and rating. <br>
+Movie Listings: Display a list of movies currently playing or upcoming, along with relevant details such as title,description, genre, and rating. <br>
 <br>
 Theater and Showtime Information: Provide information about theaters and their showtimes for each movie. Users should be able to view details like theater location, available showtimes, seating availability, and ticket prices.<br>
 <br>
