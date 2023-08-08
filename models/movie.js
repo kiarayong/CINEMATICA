@@ -1,15 +1,11 @@
 const mongoose = require('mongoose');
 
 const movieSchema = mongoose.Schema({
-    title: {type: String, unique: true},
+    title: String,
     description: String,
-    genre:String,
-    release: {
-        date: String,
-    },
-    duration:Number,
-    director:String,
-    rating:Number,
+    genre: String,
+    image: String,
+    cinema: { type: mongoose.Schema.Types.ObjectId, ref: 'cinemas' } 
 });
 
 module.exports = mongoose.model('movies',movieSchema);

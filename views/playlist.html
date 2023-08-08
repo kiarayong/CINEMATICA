@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Playlists</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="/">Home</a>
+        <div class="authenticatedSection">
+            <a href="/addMovie">Add new movie</a>
+            <a href="/playlist">My Playlist</a>
+            <a href="/profile">My Profile</a>
+            <a href="#" id="logoutLink">Logout</a>
+        </div>
+        <div class="unauthenticatedSection">
+            <a href="/login">Login</a>
+        </div>
+    </header>
+    <h1>My Playlists</h1>
+    <section class="create-playlist">
+        <h2>Create a New Playlist</h2>
+        <!-- Inside the <section class="create-playlist"> section -->
+<form id="createPlaylistForm">
+    <label for="playlistName">Playlist Name:</label>
+    <input type="text" id="playlistName" name="playlistName" required>
+    <button type="submit">Create Playlist</button>
+</form>
+
+    </section>
+
+    <!-- Display existing playlists -->
+    <section class="playlists">
+        <!-- Playlists will be added here dynamically -->
+    </section>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/playlists.js"></script> <!-- New JavaScript file for playlist functionality -->
+    <script src="./js/auth.js"></script>
+</body>
+</html>

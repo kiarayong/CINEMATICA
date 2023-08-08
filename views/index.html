@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinematica</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="/">Home</a>
+        <div class="authenticatedSection">
+            <a href="/addMovie">Add new movie</a>
+            <a href="/playlist">My Playlist</a>
+            <a href="/profile">My Profile</a>
+            <a href="#" id="logoutLink">Logout</a>
+        </div>
+        <div class="unauthenticatedSection">
+            <a href="/login">Login</a>
+        </div>
+    </header>
+    <h1>Movies Page</h1>
+    <form id="searchForm">
+        <input type="text" id="searchQuery" placeholder="Search for movies...">
+        <button type="submit">Search</button>
+    </form>
+    <section class="movies">
+
+    </section>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</body>
+</html>

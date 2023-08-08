@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const movie = require("../models/movie.js");
 const user = require('../models/user.js');
+const cinema = require("../models/cinema.js"); // Add this line
+const playlist = require('../models/playlist.js');
 const e = require('express');
-const theater = require('../models/theater.js');
 
 let db={
     async connect() {
@@ -15,40 +16,107 @@ let db={
             throw new Error("Error connecting to Mongo DB");
         }
     },
-    async addMovie(title, description, genre, releaseDate,duration,director,rating ) {
-        try {
-            await movie.create({
-                title: title,
-                description: description,
-                genre:genre,
-                release: {
-                    date: releaseDate,
-                },
-                duration:duration,
-                director:director,
-                rating:rating,
-
-            });
-            // return "Event name: "+name+" has been added";
-            return `Movie name: ${title} has been added`;
-        }
-        catch(e) {
-            console.log(e.message);
-            throw new Error(`Movie name: ${title} was not added.`);
-        }
-    },
-
     async getAllMovies() {
         try {
-            let results = await movie.find();
+            let results = await movie.find().populate('cinema',['name','location']);
             return results;
         }
         catch(e) {
             console.log(e.message);
             throw new Error("Error retrieving movies");
         }
-
     },
+    async getAllCinemas() {
+        try {
+            let results = await cinema.find();
+            return results;
+        }
+        catch(e) {
+            console.log(e.message);
+            throw new Error("Error retrieving movies");
+        }
+    },
+    async  addMovie(title, description, genre, image, cinemaId, userId) {
+        try {
+            // Fetch the user and check isAdmin
+            const user = await db.getUserById(userId);
+            if (!user) {
+                throw new Error("User not found");
+            }
+    
+            if (!user.isAdmin) {
+                throw new Error("Only admin users are allowed to add movies.");
+            }
+    
+            // Add the movie
+            await movie.create({
+                title: title,
+                description: description,
+                genre: genre,
+                image: image,
+                cinema: cinemaId
+            });
+    
+            return `${title} has been added to the system`;
+        } catch (e) {
+            console.log(e.message);
+            throw new Error(`Unable to add ${title} to the system.`);
+        }
+    },
+    
+    async getUser(username,password) {
+        try {
+            let result = await user.findOne({username: username, password: password});
+            return result;
+        }
+        catch(e) {
+            console.log(e.message);
+            throw new Error("Error retrieving login credentials");
+        }
+    },
+    async getUserById(id) {
+        try {
+            let result = await user.findById(id);
+            return result;
+        } catch (e) {
+            console.log(e.message);
+            throw new Error("Error retrieving user by ID");
+        }
+    },
+
+    
+    async updateToken(id,token) {
+        try {
+            await user.findByIdAndUpdate(id,{token:token});
+            return;
+        }
+        catch(e) {
+            console.log(e.message);
+            throw new Error("Error at the server. Please try again later.");
+        }
+    },
+
+    async removeToken(id) {
+        try {
+            await user.findByIdAndUpdate(id, {$unset: {token: 1}});
+            return;
+        }
+        catch(e) {
+            console.log(e.message);
+            throw new Error("Error at the server. Please try again later.");
+        }
+    },
+    async checkToken(token) {
+        try {
+            let result = await user.findOne({token:token});
+            return result;
+        }
+        catch(e) {
+            console.log(e.message);
+            throw new Error("Error at the server. Please try again later.");
+        }
+    },
+
 
     async getMovieByTitle(conditions) {
         try {
@@ -60,42 +128,17 @@ let db={
             throw new Error("Error retrieving movie");
         }
     },
-
-    async updateMovie(conditions, updates) {
+    async getMovieById(id) {
         try {
-            let result = await movie.findOneAndUpdate(conditions, updates)
-            if (!result) return "Unable to find record to update.";
-            else return "Movie is updated!";
-        }
-        catch(e) {
-            console.log(e.message);
-            throw new Error("Error updating Movie");
-        }
-    },
-
-    async deleteMovie(conditions) {
-        try {
-            let result = await movie.findOneAndDelete(conditions);
-            if (!result) return "Unable to find a record to delete.";
-            else return "Record is deleted!";
-        }
-        catch(e) {
-            console.log(e.message);
-            throw new Error("Error deleting movie");
-        }
-    },
-
-    
-    async SearchMovie(title) {
-        try {
-            let results = await movie.find({title:new RegExp(title,'i')});
+            let results = await movie.findById(id);
             return results;
         }
         catch(e) {
             console.log(e.message);
-            throw new Error('Unable to retrieve records');
+            throw new Error("Error retrieving movie");
         }
     },
+
 
     async register(name, username,email,password) {
         try {
@@ -104,6 +147,8 @@ let db={
                 username: username,
                 email:email,
                 password: password,
+                playlists: [],
+
             
             })
             return `${username} has successfully registered  `;
@@ -113,47 +158,78 @@ let db={
             throw new Error(`${username} unable to register`);
         }
     },
+    // ...
 
-    async addTheater(name, address, city, phone,email ) {
-        try {
-            await theater.create({
-                name: name,
-                address: address,
-                city:city,
-                phone:phone,
-                email:email,
+// ...
 
-            });
-            return `Theater name: ${name} has been added`;
+async createPlaylist(userId, playlistName) {
+    try {
+        const userid = await user.findById(userId);
+        if (!userid) {
+            throw new Error("User not found");
         }
-        catch(e) {
-            console.log(e.message);
-            throw new Error(`Theater name: ${name} was not added.`);
-        }
-    },
 
-    async SearchTheater(name) {
-        try {
-            let results = await theater.find({name:new RegExp(name,'i')});
-            return results;
-        }
-        catch(e) {
-            console.log(e.message);
-            throw new Error('Unable to find thearter');
-        }
-    },
+        const Playlist = await playlist.create({
+            name: playlistName,
+            movies: [],
+        });
 
-    async updateTheater(conditions, updates) {
-        try {
-            let result = await theater.findOneAndUpdate(conditions, updates)
-            if (!result) return "Unable to find record to update.";
-            else return "Theater is updated!";
+        userid.playlists.push(Playlist._id);
+        await userid.save();
+
+        return `${playlistName} playlist has been created`;
+    } catch (error) {
+        console.log(error.message);
+        throw new Error("Error creating playlist");
+    }
+},
+
+
+async getUserPlaylists(userId) {
+    try {
+        const userid = await user.findById(userId).populate('playlists');
+        if (!userid) {
+            throw new Error("User not found");
         }
-        catch(e) {
-            console.log(e.message);
-            throw new Error("Error updating Theater");
+        
+        return userid.playlists;
+
+    } catch (error) {
+        console.error(error);
+        throw new Error("Error retrieving user's playlists");
+    }
+},
+async deletePlaylist(userId, playlistId) {
+    try {
+        // Delete the playlist from the 'playlists' collection
+        await playlist.findByIdAndDelete(playlistId);
+
+        // Remove the playlist reference from the user's 'playlists' array
+        const User = await user.findByIdAndUpdate(userId, {
+            $pull: { playlists: playlistId }
+        });
+
+        if (!User) {
+            throw new Error("User not found");
         }
-    },
+
+        return "Playlist deleted successfully";
+    } catch (error) {
+        console.log(error.message);
+        throw new Error("Error deleting playlist");
+    }
+},
+
+async updateUserProfile(userId, newProfileData) {
+    try {
+        const updatedUser = await user.findByIdAndUpdate(userId, newProfileData, { new: true });
+        return updatedUser;
+    } catch (error) {
+        throw error;
+    }
+},
+
+
 }
 
 module.exports = db;

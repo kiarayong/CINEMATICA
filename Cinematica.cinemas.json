@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "64435f6e71fc032666f5dd36"
+  },
+  "name": "GV Plaza",
+  "location": "68 Orchard Road, #07-01, Singapore 238839"
+},
+{
+  "_id": {
+    "$oid": "64435f6e71fc032666f5dd37"
+  },
+  "name": "GV Tampines",
+  "location": "4 Tampines Central 5, #05-01, Tampines Mall, Singapore 529510"
+},
+{
+  "_id": {
+    "$oid": "64435f6e71fc032666f5dd38"
+  },
+  "name": "GV VivoCity",
+  "location": "1 HarbourFront Walk, #02-30, VivoCity, Singapore 098585"
+}]

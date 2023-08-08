@@ -1,0 +1,98 @@
+[{
+  "_id": {
+    "$oid": "6443606771fc032666f5dd3b"
+  },
+  "title": "Avengers: Endgame",
+  "description": "After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to undo Thanos' actions and restore order to the universe.",
+  "genre": "Action",
+  "cinema": {
+    "$oid": "64435f6e71fc032666f5dd36"
+  },
+  "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQA_-tL18_rj9zEcjN6n41NEaJm-kRNF9UeOtvksZ4z_OW6jRA9"
+},
+{
+  "_id": {
+    "$oid": "6443606771fc032666f5dd3c"
+  },
+  "title": "The Shawshank Redemption",
+  "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+  "genre": "Drama",
+  "cinema": {
+    "$oid": "64435f6e71fc032666f5dd36"
+  },
+  "image": "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_FMjpg_UX1000_.jpgAgkRw9_ONiZ5RX1sg53__YVoLs28rfR8M-"
+},
+{
+  "_id": {
+    "$oid": "6443606771fc032666f5dd3d"
+  },
+  "title": "The Godfather",
+  "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+  "genre": "Crime",
+  "cinema": {
+    "$oid": "64435f6e71fc032666f5dd37"
+  },
+  "image": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg"
+},
+{
+  "_id": {
+    "$oid": "6443606771fc032666f5dd3e"
+  },
+  "title": "Inception",
+  "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+  "genre": "Science Fiction",
+  "cinema": {
+    "$oid": "64435f6e71fc032666f5dd37"
+  },
+  "image": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg"
+},
+{
+  "_id": {
+    "$oid": "6443606771fc032666f5dd3f"
+  },
+  "title": "Joker",
+  "description": "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.",
+  "genre": "Drama",
+  "cinema": {
+    "$oid": "64435f6e71fc032666f5dd38"
+  },
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuTcvL4wc0fbBjm1h5CRiFEZ2TnNKtu8KtoPSxTsj6mkedHeWl"
+},
+{
+  "_id": {
+    "$oid": "6443606771fc032666f5dd40"
+  },
+  "title": "The Lion King",
+  "description": "After the murder of his father, a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery.",
+  "genre": "Animation",
+  "cinema": {
+    "$oid": "64435f6e71fc032666f5dd38"
+  },
+  "image": "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_.jpg"
+},
+{
+  "_id": {
+    "$oid": "64d12d736f1f9d03cc150d51"
+  },
+  "title": "Barbie",
+  "description": "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.",
+  "genre": "Comedy",
+  "image": "https://upload.wikimedia.org/wikipedia/en/0/0b/Barbie_2023_poster.jpg",
+  "cinema": {
+    "$oid": "64435f6e71fc032666f5dd36"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1ddb5641932852f734bae"
+  },
+  "title": "Hello",
+  "description": "1",
+  "genre": "1",
+  "image": "https://pbs.twimg.com/media/FvUVt3hXgAAxP1H?format=jpg&name=900x900",
+  "cinema": {
+    "$oid": "64435f6e71fc032666f5dd36"
+  },
+  "__v": 0
+}]

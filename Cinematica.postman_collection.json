@@ -7,65 +7,6 @@
 	},
 	"item": [
 		{
-			"name": "Add Movie",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "title",
-							"value": "Aavatar",
-							"type": "text"
-						},
-						{
-							"key": "description",
-							"value": "Jake, who is paraplegic, replaces his twin on the Na'vi inhabited Pandora for a corporate mission. After the natives accept him as one of their own, he must decide where his loyalties lie.",
-							"type": "text"
-						},
-						{
-							"key": "genre",
-							"value": "Action",
-							"type": "text"
-						},
-						{
-							"key": "releaseDate",
-							"value": "17/12/2009",
-							"type": "text"
-						},
-						{
-							"key": "duration",
-							"value": "182",
-							"type": "text"
-						},
-						{
-							"key": "director",
-							"value": "James Cameron",
-							"type": "text"
-						},
-						{
-							"key": "rating",
-							"value": "7.9",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "localhost:3000/api/movies",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"movies"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Get All Movie",
 			"request": {
 				"method": "GET",
@@ -85,26 +26,24 @@
 			"response": []
 		},
 		{
-			"name": "Get Movie By Title",
+			"name": "Get Cinema",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/movie/title/:value",
+					"raw": "localhost:3000/api/cinemas?token",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"api",
-						"movie",
-						"title",
-						":value"
+						"cinemas"
 					],
-					"variable": [
+					"query": [
 						{
-							"key": "value",
-							"value": "Avatar"
+							"key": "token",
+							"value": null
 						}
 					]
 				}
@@ -112,55 +51,69 @@
 			"response": []
 		},
 		{
-			"name": "Update Movie",
+			"name": "Get Movie By Id",
 			"request": {
-				"method": "PUT",
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/movies/:movieId",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"movies",
+						":movieId"
+					],
+					"variable": [
+						{
+							"key": "movieId",
+							"value": "6443606771fc032666f5dd3b"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search movie",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
 							"key": "title",
-							"value": "Avatar",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "description",
-							"value": "Jake, who is paraplegic, replaces his twin on the Na'vi inhabited Pandora for a corporate mission. After the natives accept him as one of their own and he must decide where his loyalties lie.",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "rating",
-							"value": "8.8",
+							"value": "Avengers",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost:3000/api/movie/title/:value",
+					"raw": "http://localhost:3000/api/movies?title=The",
+					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"api",
-						"movie",
-						"title",
-						":value"
+						"movies"
 					],
 					"query": [
 						{
-							"key": "",
-							"value": null,
+							"key": "search",
+							"value": "adve",
 							"disabled": true
-						}
-					],
-					"variable": [
+						},
 						{
-							"key": "value",
-							"value": "Avatar"
+							"key": "title",
+							"value": "The"
 						}
 					]
 				}
@@ -168,34 +121,7 @@
 			"response": []
 		},
 		{
-			"name": "Delete Movie",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/movie/title/:value",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"movie",
-						"title",
-						":value"
-					],
-					"variable": [
-						{
-							"key": "value",
-							"value": "Avatar"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Search Movie",
+			"name": "Add Movie",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -204,21 +130,47 @@
 					"urlencoded": [
 						{
 							"key": "title",
-							"value": "ave",
+							"value": "bb",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.",
+							"type": "text"
+						},
+						{
+							"key": "genre",
+							"value": "Comedy",
+							"type": "text"
+						},
+						{
+							"key": "cinemaId",
+							"value": "64435f6e71fc032666f5dd36",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"value": "data:image/jpeg;base64,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",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost:3000/api/movie/search",
+					"raw": "http://localhost:3000/api/movies?token=e37757b96f81692bbb88af0fc482f5db",
+					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"api",
-						"movie",
-						"search"
+						"movies"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "e37757b96f81692bbb88af0fc482f5db"
+						}
 					]
 				}
 			},
@@ -234,22 +186,22 @@
 					"urlencoded": [
 						{
 							"key": "name",
-							"value": "Jet",
+							"value": "yongle",
 							"type": "text"
 						},
 						{
 							"key": "username",
-							"value": "jetyang",
+							"value": "yongle",
 							"type": "text"
 						},
 						{
 							"key": "email",
-							"value": "jetyang@yahoo.com",
+							"value": "yongle@yahoo.com",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "123456",
+							"value": "110103",
 							"type": "text"
 						}
 					]
@@ -269,7 +221,7 @@
 			"response": []
 		},
 		{
-			"name": "Add Theater",
+			"name": "Login",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -277,49 +229,127 @@
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
-							"key": "name",
-							"value": "Cathay Cineplex",
+							"key": "username",
+							"value": "yongle",
 							"type": "text"
 						},
 						{
-							"key": "address",
-							"value": "Cathay Cineplex AMK Hub, 53 Ang Mo Kio Ave 3, Level 4, Singapore 569933",
+							"key": "password",
+							"value": "110103",
 							"type": "text"
-						},
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/users/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/users/logout?token=f0f651418c69b4366623fc899108d031",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"logout"
+					],
+					"query": [
 						{
-							"key": "city",
-							"value": "Ang Mo Kio",
-							"type": "text"
-						},
+							"key": "token",
+							"value": "f0f651418c69b4366623fc899108d031"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Playlists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/playlists?token=f0f651418c69b4366623fc899108d031",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"playlists"
+					],
+					"query": [
 						{
-							"key": "phone",
-							"value": "",
-							"type": "text",
-							"disabled": true
-						},
+							"key": "token",
+							"value": "f0f651418c69b4366623fc899108d031"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user info",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
 						{
 							"key": "email",
-							"value": "bookings@cathaycineplexes.com.sg",
+							"value": "lalo@yahoo.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "lalo",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost:3000/api/theater",
+					"raw": "localhost:3000/api/users/profile?token=a3a6efe213b49940aede9d257d266a8b",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"api",
-						"theater"
+						"users",
+						"profile"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "a3a6efe213b49940aede9d257d266a8b"
+						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Search Theater",
+			"name": "Create Playlist",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -327,64 +357,175 @@
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
-							"key": "name",
-							"value": "go",
+							"key": "playlistName",
+							"value": "hi",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost:3000/api/theater/search",
+					"raw": "localhost:3000/api/playlist/create?token=a3a6efe213b49940aede9d257d266a8b",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"api",
-						"theater",
-						"search"
+						"playlist",
+						"create"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "a3a6efe213b49940aede9d257d266a8b"
+						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Update Theater",
+			"name": "Delete playlist",
 			"request": {
-				"method": "PUT",
+				"method": "DELETE",
 				"header": [],
 				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "name",
-							"value": "Cathay Cineplex AMK",
-							"type": "text"
-						},
-						{
-							"key": "city",
-							"value": "Tampines",
-							"type": "text",
-							"disabled": true
-						}
-					]
+					"mode": "formdata",
+					"formdata": []
 				},
 				"url": {
-					"raw": "localhost:3000/api/theater/name/:value",
+					"raw": "localhost:3000/api/playlists/:playlistId?token=a3a6efe213b49940aede9d257d266a8b",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"api",
-						"theater",
-						"name",
-						":value"
+						"playlists",
+						":playlistId"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "a3a6efe213b49940aede9d257d266a8b"
+						}
 					],
 					"variable": [
 						{
-							"key": "value",
-							"value": "Cathay Cineplex"
+							"key": "playlistId",
+							"value": "64d10fedec421e7c95972399"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete movie from playlist",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/playlists/:playlistId/removeMovie/:movieId?token=a3a6efe213b49940aede9d257d266a8b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"playlists",
+						":playlistId",
+						"removeMovie",
+						":movieId"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "a3a6efe213b49940aede9d257d266a8b"
+						}
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "64d1c0846ce3f9989641dced"
+						},
+						{
+							"key": "movieId",
+							"value": "6443606771fc032666f5dd3c"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Movie To Playlist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "movieId",
+							"value": "6443606771fc032666f5dd3b",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/playlist/:playlistId/addMovie?token=a3a6efe213b49940aede9d257d266a8b",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"playlist",
+						":playlistId",
+						"addMovie"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "a3a6efe213b49940aede9d257d266a8b"
+						}
+					],
+					"variable": [
+						{
+							"key": "playlistId",
+							"value": "64d1c0846ce3f9989641dced"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/users/profile?token=a3a6efe213b49940aede9d257d266a8b",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"profile"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "a3a6efe213b49940aede9d257d266a8b"
 						}
 					]
 				}
